@@ -40,6 +40,53 @@ A modern, interactive CLI todo list manager with MongoDB persistence. Built with
 - [Bun](https://bun.sh) runtime installed
 - MongoDB running locally on `localhost:27017`
 
+### Setting Up MongoDB
+
+#### Option 1: MongoDB Community Server (Local Installation)
+
+**Windows:**
+1. Download from [MongoDB Download Center](https://www.mongodb.com/try/download/community)
+2. Run the installer and follow the setup wizard
+3. MongoDB will be installed as a service and start automatically
+4. Verify with: `mongosh` (MongoDB Shell)
+
+**macOS:**
+```bash
+# Using Homebrew
+brew tap mongodb/brew
+brew install mongodb-community
+brew services start mongodb-community
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+# Install MongoDB
+wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo systemctl start mongod
+sudo systemctl enable mongod
+```
+
+#### Option 2: Docker (Recommended for Easy Setup)
+
+```bash
+# Pull and run MongoDB in Docker
+docker run -d -p 27017:27017 --name mongodb mongo:latest
+
+# Verify connection
+docker exec mongodb mongosh --eval "db.adminCommand('ping')"
+```
+
+#### Verify Connection
+The app includes an automatic database health check at startup. When you run `bun start`, it will:
+- ✓ Test MongoDB connectivity
+- ✓ Create the database and collection if needed
+- ✓ Load existing todos
+
+If MongoDB is not running, you'll see a clear error message.
+
 ### Setup
 
 ```bash
