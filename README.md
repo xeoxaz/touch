@@ -100,6 +100,30 @@ bun install
 bun start
 ```
 
+### Building Binaries
+
+To create standalone executables, build on your target platform:
+
+**Windows:**
+```bash
+bun run build
+# Creates: dist/touch.exe
+```
+
+**macOS:**
+```bash
+bun run build
+# Creates: dist/touch (no extension)
+```
+
+**Linux:**
+```bash
+bun run build
+# Creates: dist/touch (no extension)
+```
+
+Binaries are self-contained and don't require Bun or Node.js to be installed.
+
 ## Usage
 
 ### Navigation

@@ -20,11 +20,8 @@
   ],
   "scripts": {
     "start": "bun index.ts",
-    "build:win": "bun build --compile --outfile dist/touch.exe index.ts",
-    "build:macos": "bun build --compile --outfile dist/touch-macos index.ts",
-    "build:linux": "bun build --compile --outfile dist/touch-linux index.ts",
-    "build": "mkdir -p dist && bun run build:win && bun run build:macos && bun run build:linux",
-    "clean": "rm -rf dist"
+    "build": "bun build --compile index.ts",
+    "build:release": "echo 'For proper cross-platform binaries, build on each platform: macOS, Linux, Windows'"
   },
   "devDependencies": {
     "@types/bun": "latest"
