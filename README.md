@@ -2,7 +2,7 @@
 
 A modern, interactive CLI todo list manager with MongoDB persistence. Built with TypeScript and Bun.
 
-[![Release](https://img.shields.io/badge/release-v1.0.0-blue)](https://github.com/xeoxaz/touch/releases/tag/v1.0.0)
+[![Release](https://img.shields.io/badge/release-v1.1.0-blue)](https://github.com/xeoxaz/touch/releases/tag/v1.1.0)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 
