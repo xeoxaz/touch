@@ -1,0 +1,33 @@
+{
+  "name": "touch",
+  "version": "1.0.0",
+  "description": "A modern, interactive CLI todo list manager with MongoDB persistence. Built with TypeScript and Bun.",
+  "author": "Xeoxaz",
+  "license": "MIT",
+  "module": "index.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xeoxaz/touch.git"
+  },
+  "keywords": [
+    "cli",
+    "todo",
+    "mongodb",
+    "typescript",
+    "bun",
+    "interactive"
+  ],
+  "scripts": {
+    "start": "bun index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "mongodb": "^7.1.1"
+  }
+}
