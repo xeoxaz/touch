@@ -1,7 +1,7 @@
 {
   "name": "touch",
   "version": "1.1.0",
-  "description": "A modern, interactive CLI todo list manager with MongoDB persistence. Built with TypeScript and Bun.",
+  "description": "A clipboard-branded interactive CLI todo list manager with MongoDB persistence. Built with TypeScript and Bun.",
   "author": "Xeoxaz",
   "license": "MIT",
   "module": "index.ts",
@@ -13,6 +13,7 @@
   "keywords": [
     "cli",
     "todo",
+    "clipboard",
     "mongodb",
     "typescript",
     "bun",
@@ -20,11 +21,12 @@
   ],
   "scripts": {
     "start": "bun index.ts",
-    "build": "bun build --compile index.ts",
+    "build": "bun build --compile --outfile=dist/touch.exe index.ts",
     "build:release": "echo 'For proper cross-platform binaries, build on each platform: macOS, Linux, Windows'"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "rcedit": "^5.0.2"
   },
   "peerDependencies": {
     "typescript": "^5"

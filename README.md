@@ -1,6 +1,8 @@
-# Touch - CLI Todo List Manager
+# 📋 Touch - Clipboard Todo CLI
 
-A modern, interactive CLI todo list manager with MongoDB persistence. Built with TypeScript and Bun.
+A modern, interactive clipboard-branded CLI todo manager with MongoDB persistence. Built with TypeScript and Bun.
+
+![Touch clipboard brand](./clipboard.png)
 
 [![Release](https://img.shields.io/badge/release-v1.1.0-blue)](https://github.com/xeoxaz/touch/releases/tag/v1.1.0)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -13,6 +15,7 @@ A modern, interactive CLI todo list manager with MongoDB persistence. Built with
 - Left/Right arrows to control toolbar buttons
 - Up/Down arrows to navigate todo list
 - Beautiful colored output with syntax highlighting
+- 📋 Clipboard branding across the CLI and project assets
 
 🎨 **Color-Coded UI**
 - Cyan: Header, toggle button
@@ -21,7 +24,7 @@ A modern, interactive CLI todo list manager with MongoDB persistence. Built with
 - Red: Delete and cancel buttons
 - Gray: Disabled/secondary actions
 
-📝 **Full Todo Management**
+📋 **Full Todo Management**
 - ✅ **Toggle** - Mark todos as complete/incomplete
 - ✏️ **Edit** - Modify existing todo text
 - ➕ **New** - Create new todos with text input
@@ -109,6 +112,11 @@ To create standalone executables, build on your target platform:
 bun run build
 # Creates: dist/touch.exe
 ```
+
+The Windows build now stops at Bun compilation. Post-processing the compiled `.exe` with `rcedit` corrupted Bun's embedded application payload in this environment and caused the executable to launch the Bun runtime help screen instead of the app.
+
+The clipboard assets are still used for project branding, but the compiled Windows icon is left unmodified until Bun's native `--windows-icon` support works reliably here.
+
 
 **macOS:**
 ```bash

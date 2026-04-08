@@ -64,15 +64,15 @@ class TodoCLI {
   async initialize() {
     try {
       // Show boot message
-      console.log(`\n${Colors.cyan}${Colors.bold}📝 Touch - Todo List CLI${Colors.reset}`);
+      console.log(`\n${Colors.cyan}${Colors.bold}📋 Touch - Clipboard Todo CLI${Colors.reset}`);
       console.log(`${Colors.gray}Checking database connection...${Colors.reset}`);
-      
+
       this.client = new MongoClient(MONGODB_URI);
       await this.client.connect();
-      
+
       // Test database connectivity
       await this.testDatabaseConnection();
-      
+
       this.db = this.client.db(DB_NAME);
 
       // Ensure collection exists
@@ -287,7 +287,7 @@ class TodoCLI {
 
   private render() {
     console.clear();
-    console.log(`\n${Colors.bold}${Colors.cyan}📝 Todo List CLI${Colors.reset}\n`);
+    console.log(`\n${Colors.bold}${Colors.cyan}📋 Touch - Clipboard Todo CLI${Colors.reset}\n`);
     console.log(`${Colors.gray}Use arrow buttons to navigate${Colors.reset}\n`);
 
     // Always show toolbar
