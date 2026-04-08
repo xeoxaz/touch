@@ -63,8 +63,16 @@ class TodoCLI {
 
   async initialize() {
     try {
+      // Show boot message
+      console.log(`\n${Colors.cyan}${Colors.bold}📝 Touch - Todo List CLI${Colors.reset}`);
+      console.log(`${Colors.gray}Checking database connection...${Colors.reset}`);
+      
       this.client = new MongoClient(MONGODB_URI);
       await this.client.connect();
+      
+      // Test database connectivity
+      await this.testDatabaseConnection();
+      
       this.db = this.client.db(DB_NAME);
 
       // Ensure collection exists
@@ -75,10 +83,25 @@ class TodoCLI {
 
       // Load todos from database
       await this.loadTodos();
+      console.log(`${Colors.green}✓ Database ready${Colors.reset}\n`);
       this.render();
     } catch (error) {
-      console.error("Failed to connect to MongoDB:", error);
+      console.error(`${Colors.red}✗ Failed to connect to MongoDB${Colors.reset}`);
+      if (error instanceof Error) {
+        console.error(`${Colors.gray}Error: ${error.message}${Colors.reset}`);
+      }
       process.exit(1);
+    }
+  }
+
+  private async testDatabaseConnection() {
+    if (!this.client) {
+      throw new Error("MongoClient not initialized");
+    }
+    try {
+      await this.client.db("admin").command({ ping: 1 });
+    } catch (error) {
+      throw new Error("Unable to reach MongoDB at " + MONGODB_URI);
     }
   }
 
